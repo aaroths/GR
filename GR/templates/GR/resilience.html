@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="image1"><img src="{% static "GR/resilience.png" %}" alt="" width="600" height="244"/></div>
+<div class="row">
+<div class="col-sm-2"></div>
+<div class="col-sm-4">
+<p class="textbox" style="text-align: center;"><span1><strong>Resilience</strong> is a trainable ability that allows a person to adapt and overcome hard things in life.</span1></p>
+
+</div>
+<div class="col-sm-4">
+<p class="textbox" style="text-align: center;"><span1><strong>Stresses</strong> are the hard things, challenges, and traumas that occur in people's lives. These things are common.</span1></p>
+
+</div>
+</div>
+
+<br>
+<div class="row">
+<div class="col-sm-6">
+
+<h4 style="text-align:center">Distressed</h4>
+<div class="image1"><img src="{% static "GR/stressed.png" %}" alt="" width="300" height="167"/></div>
+<p style="text-align: center;">The stresses in your life overcome your resilience for now</p>
+
+</div>
+<div class="col-sm-6">
+<h4 style="text-align:center">Coping</h4>
+<div class="image1"><img src="{% static "GR/coping.png" %}" alt="" width="300" height="166"/></div>
+<p style="text-align: center;">Your resilience allows you to thrive and do well in spite of the stress</p>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+
+<div class = "border">
+<p>Stresses are inevitable, but letting them keep us down is optional.
+With time, you can grow your resilience and overcome significant stresses.</p>
+</div>
+</div>
+</div>
+
+<br>
+
+<div class = "image1">
+<a class = "button" href="{% url 'resilience' %}">Grow Resilience </a>
+<a class = "button" href="{% url 'about' %}">About the Project </a>
+</div>
+
+{% endblock %}

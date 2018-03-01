@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  {% block content %}
+
+  <p style="text-align: left;">Hard things happen to all of us.</p>
+  <p style="text-align: left;"><strong><a href="http://growingresilient.com/home/what-is-resilience/">Resilience</a></strong> allows us to overcome challenges, and even to grow and learn from them. This site has Tools, Activities, and Mindsets to increase your resilience.</p>
+
+  <p>That way, when hard things happen, you're prepared to deal with them.</p>
+  <br>
+
+  <h2><a href="{% url 'all' %}">See all interventions</a></h2>
+
+  <h2 style="text-align: center;"><a href="http://growingresilient.com/home/tools/">Tools</a></h2>
+  <div class = "image1"><a href="http://growingresilient.com/home/tools/"><img src="{% static "GR/tools.png" %}" alt="My image" style="width:100px;height:100px;"/></a></div>
+
+  <div class="row">
+  <div class="col-sm-4">
+  <h4 class="title1" style="text-align: center;"><a href="http://growingresilient.com/3-ps/">The 3 P's</a></h4>
+  <p class="textbox1" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/3-ps/"><span1><img src="{% static "GR/3P.png" %}" alt="My image" style="width:50px;height:50px;"/><br>Change your perspective.</span1></a></p>
+
+  </div>
+  <div class="col-sm-4">
+  <h4 class="title1" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/the-shutdown/">The Shutdown</a></h4>
+  <p class="textbox1" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/the-shutdown/"><span1><img src="{% static "GR/shutdown.png" %}" alt="My image" style="width:50px;height:50px;"/><br>Turn off your work at the end of the day.</span1></a></p>
+
+  </div>
+  <div class="col-sm-4">
+  <h4 class="title1" style="text-align: center;"><a href="http://growingresilient.com/the-reset/">The Reset</a></h4>
+  <p class="textbox1" style="text-align: center;"><a href="http://growingresilient.com/the-reset/"><span1><img src="{% static "GR/reset.png" %}" alt="My image" style="width:50px;height:50px;"/><br>Regain calmness and control.</span1></a></p>
+
+  </div>
+  </div>
+  <h4 style="text-align: right;"><a href="http://growingresilient.com/home/tools/">All Tools &gt;</a></h4>
+  <br>
+
+  <h2 style="text-align: center;"><a href="http://growingresilient.com/home/activities/">Activities</a></h2>
+  <a href="http://growingresilient.com/home/activities/"><div class = "image1"><img src="{% static "GR/activities.png" %}" alt="My image" style="width:100px;height:100px;"/></div></a>
+  <div>
+  <div class="row">
+  <div class="col-sm-4">
+  <h4 class="title2" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/goal-pyramid/">Goal Pyramid</a></h4>
+  <p class="textbox2" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/goal-pyramid/"><span1><img src="{% static "GR/goalpyramid.png" %}" alt="My image" style="width:50px;height:50px;"/><br>See the big picture.</span1></a></p>
+
+  </div>
+  <div class="col-sm-4">
+  <h4 class="title2" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/a-space/">A Space</a></h4>
+  <p class="textbox2" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/a-space/"><span1><img src="{% static "GR/space.png" %}" alt="My image" style="width:50px;height:50px;"/><br>Find your very own space.</span1></a></p>
+
+  </div>
+  <div class="col-sm-4">
+  <h4 class="title2" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/three-selves/">Three Selves</a></h4>
+  <p class="textbox2" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/three-selves/"><span1><img src="{% static "GR/threeselves.png" %}" alt="My image" style="width:50px;height:50px;"/><br>Discover your three selves: past, present and future.</span1></a></p>
+
+  </div>
+  </div>
+  <h4 style="text-align: right;"><a href="http://growingresilient.com/home/activities/">All Activities &gt;</a></h4>
+  </br>
+
+  <h2 style="text-align: center;"><a href="http://growingresilient.com/home/mindsets/">Mindsets</a></h2>
+  <div class = "image1"><a href="http://growingresilient.com/home/mindsets/"><img src="{% static "GR/mindsets.png" %}" alt="My image" style="width:100px;height:100px;"/></a></div>
+  <div class="row">
+  <div class="col-sm-4">
+  <h4 class="title3" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/mindfulness/">Mindfulness</a></h4>
+  <p class="textbox3" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/mindfulness/"><span1><img src="{% static "GR/mindfulness.png" %}" alt="My image" style="width:50px;height:50px;"/><br>See the present moment with more clarity.</span1></a></p>
+
+  </div>
+  <div class="col-sm-4">
+  <h4 class="title3" style="text-align: center;"><a href="http://growingresilient.com/self-compassion/">Self-Compassion</a></h4>
+  <p class="textbox3" style="text-align: center;"><a href="http://growingresilient.com/self-compassion/"><span1><img src="{% static "GR/selfcompassion.png" %}" alt="My image" style="width:50px;height:50px;"/><br>Accept yourself and decrease self-criticism.</span1></a></p>
+
+  </div>
+  <div class="col-sm-4">
+  <h4 class="title3" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/vulnerability/">Vulnerability</a></h4>
+  <p class="textbox3" style="text-align: center;"><a href="http://growingresilient.com/grow-your-resilience/vulnerability/"><span1><img src="{% static "GR/vulnerability.png" %}" alt="My image" style="width:50px;height:50px;"/><br>Embrace your imperfections.</span1></a></p>
+
+  </div>
+  </div>
+
+  <h4 style="text-align: right;"><a href="http://growingresilient.com/home/mindsets/">All Mindsets &gt;</a></h4>
+
+  <br>
+  <h2 style="text-align: center;">Resources</h2>
+  <br>
+
+  <div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-4">
+  <h4 class="title4" style="text-align: center;"><strong><a href="http://growingresilient.com/emergency/">Learn More</a></strong></h4>
+  <p class="textbox4" style="text-align: center;"><a href="http://growingresilient.com/home/what-is-resilience/"><span2>More about Resilience</span2></a></p>
+
+  </div>
+
+  <div class="col-sm-4">
+  <h4 class="title4" style="text-align: center;"><a href="http://growingresilient.com/emergency/">Emergency</a></h4>
+  <p class="textbox4" style="text-align: center;"><a href="http://growingresilient.com/emergency/"><span2>Need Help Now?</span2></a></p>
+  </div>
+  </div>
+
+
+  <p style="text-align:center;">Visit the <a href="http://www.resilientstudio.com">Resilient Studio</a> Headquarters</p>
+
+  <div class = "image1">
+    <a href="http://www.resilientstudio.com"><img src="http://growingresilient.com/wp-content/uploads/2018/01/Screenshot-2018-01-07-13.27.44-300x62.png" alt="" width="300" height="62" class="aligncenter size-medium wp-image-1166" /> </a>
+  </div>
+  <br>
+  <br>
+
+  {% endblock %}
