@@ -25,7 +25,7 @@ SECRET_KEY = 'w0jd5wh4^pb6ra)04g21#_1$%q1o+g+t8_s5ekci9ufdw(-rb0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','aaroths.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1','resilientstudio.pythonanywhere.com']
 
 
 # Application definition
