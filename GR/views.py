@@ -1,20 +1,94 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from . import views
 from django import forms
+from .forms import FavoriteForm
+from .models import Favorite,Intervention
 
 # Create your views here.
 
 def home(request):
+    user = request.user
+    interventions=Intervention.objects.all().values().order_by('displayorder')
 
-    return render(request,'GR/all.html')
+    if request.method == "POST":
+        form = FavoriteForm(request.POST)
 
-def all(request):
+        if form.is_valid():
+            data = form.cleaned_data
+            favorite = form.save(commit=False)
+            favorite.author = request.user
+            if Favorite.objects.filter(author=user,fav=data['fav']).count()!=0:
+                Favorite.objects.filter(author=user,fav=data['fav']).update(toggle='True')
+            else:
+                favorite.toggle = "True"
+                favorite.save()
 
-    return render(request,'GR/all.html')
+            return redirect('home')
+    else:
+        form = FavoriteForm()
+
+    return render(request,'GR/content.html', {'form':form,'interventions':interventions})
+
+
+#def all(request):
+
+#    return render(request,'GR/all.html')
+
+def homealt (request):
+
+    return render(request,'GR/all3.html')
 
 def all2(request):
+    user = request.user
+    interventions=Intervention.objects.all().values().order_by('displayorder')
 
-    return render(request,'GR/all2.html')
+    if request.method == "POST":
+        form = FavoriteForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            favorite = form.save(commit=False)
+            favorite.author = request.user
+            if Favorite.objects.filter(author=user,fav=data['fav']).count()!=0:
+                Favorite.objects.filter(author=user,fav=data['fav']).update(toggle='True')
+                favorite.save()
+            else:
+                favorite.toggle = "True"
+                favorite.save()
+
+            return redirect('favorite',pk=favorite.pk)
+    else:
+        form = FavoriteForm()
+
+    return render(request,'GR/all2.html', {'form':form,'interventions':interventions})
+
+def favorite (request):
+    user = request.user
+    interventions=Intervention.objects.all().values().order_by('displayorder')
+    favorites=Favorite.objects.filter(author=user,toggle=True).values('fav_id')
+    listfavorites=list(favorites)
+    newlist = []
+
+    for favorite in favorites:
+        for intervention in interventions:
+            if str(favorite['fav_id']) == str(intervention['id']):
+                newlist.append(intervention)
+
+    if request.method == "POST":
+        form = FavoriteForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            favorite = form.save(commit=False)
+            favorite.author = request.user
+            Favorite.objects.filter(author=user,fav=data['fav']).update(toggle='False')
+
+        else:
+            form = FavoriteForm()
+        return redirect('favorite')
+
+    return render(request,'GR/favorite.html',{'interventions':interventions,'favorites':favorites,'listfavorites':listfavorites,'newlist':newlist})
+
 
 def about(request):
 

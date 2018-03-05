@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  {% block content %}
+
+  {% if user.is_authenticated %}
+  <h2> {{ user.get_username|title }}'s Favourites</h2>
+  {% endif %}
+  <br>
+
+  <div class ="row">
+  {% for intervention in newlist %}
+    <div class="col-sm-4">
+    <h4 class="title{{intervention.style}}" style="text-align: center;"><a href ="/GR/{{intervention.link}}/">{{intervention.title}}</a></h4>
+    <p class="textbox{{intervention.style}}" style="text-align: center;"><a href ="/GR/{{intervention.link}}/"><span1><img src="/static/GR/{{intervention.image}}.png" alt="My image" style="width:50px;height:50px;"/><br>{{intervention.text}}</span1></a></p>
+
+    <form method="POST" class="post-form">{% csrf_token %}
+    <button type="submit" class="save btn btn-default" name="fav" option value="{{intervention.id}}">Unfavorite</button>
+    </form>
+    </div>
+  {% endfor %}
+  </div>
+{% endblock %}

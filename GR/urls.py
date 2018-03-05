@@ -6,8 +6,10 @@ from . import views as core_views
 urlpatterns = [
     path('', views.home, name='home'),
     url(r'^$', views.home, name='home'),
+    url(r'^homealt/$', views.homealt, name='homealt'),
     url(r'^about/$', views.about, name='about'),
-    url(r'^all/$', views.all, name='all'),
+    url(r'^favorite/$', views.favorite, name='favorite'),
+    #url(r'^all/$', views.all, name='all'),
     url(r'^all2/$', views.all2, name='all2'),
     url(r'^resilience/$', views.resilience, name='resilience'),
     url(r'^emergency/$', views.emergency, name='emergency'),

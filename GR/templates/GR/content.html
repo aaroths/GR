@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  {% block content %}
+
+  {% if user.is_authenticated %}
+  <h2>Welcome {{ user.get_username|title }} ! </h2>
+  <p>Pick your <a href = "{% url 'favorite' %}">favorites</a> to create your own Toolkit</p>
+  {% endif %}
+
+  <p><b>Hard things happen to all of us.</b></p>
+
+  <p><strong><a href="{% url 'resilience' %}">Resilience</a></strong> allows us to overcome challenges, and even to grow and learn from them. This site has Tools, Activities, and Mindsets to increase your resilience.</p>
+
+  <p>That way, when hard things happen, you're prepared to deal with them.</p>
+
+  <br>
+  {% if user.is_authenticated %}
+  {% else %}
+  <p> <a href="{% url 'signup' %}">Sign Up</a> or <a href="{% url 'login' %}">Login</a> to create your own resilient toolkit.</p>
+  {% endif %}
+
+  <p>#Filters</p>
+  <div id="myBtnContainer">
+    <button class="btn active" onclick="filterSelection('all')"> <b>All</b></button>
+    <button class="btn" onclick="filterSelection('activities')">Activities</button>
+    <button class="btn" onclick="filterSelection('mindsets')"> Mindsets</button>
+    <button class="btn" onclick="filterSelection('tools')"> Tools</button>
+    <button class="btn" onclick="filterSelection('other')">Other Filters</button></div>
+  </div>
+
+  <br>
+
+<div class="row">
+{% for intervention in interventions %}
+
+  <div class='{{intervention.divclass}}'>
+  <div class="col-sm-4">
+  <h4 class="title{{intervention.style}}" style="text-align: center;"><a href ="/GR/{{intervention.link}}/">{{intervention.title}}</a></h4>
+  <p class="textbox{{intervention.style}}" style="text-align: center;"><a href ="/GR/{{intervention.link}}/"><span1><img src="/static/GR/{{intervention.image}}.png" alt="My image" style="width:50px;height:50px;"/><br>{{intervention.text}}</span1></a></p>
+
+  <form method="POST" class="post-form">{% csrf_token %}
+  <button type="submit" class="save btn btn-default" name="fav" option value="{{intervention.id}}">Favorite</button>
+  </form>
+  </div>
+  </div>
+{% endfor %}
+</div>
+
+<div class="column other">
+  <a class ='button' href="{% url 'homealt' %}">Perspective, Gratitiude, Self-Love, Outlook</a>
+</div>
+
+<br>
+<br>
+<div class="margin">
+<h2>Resources</h2>
+<br>
+<a class = "button" href="{% url 'resilience' %}">More About Resilience</a>
+<a class = "button" href="{% url 'resilience' %}">Emergency</a>
+</div>
+
+<br>
+<br>
+<br>
+
+<div class = "image1">
+  <p>Visit the <a href="http://www.resilientstudio.com">Resilient Studio</a> Headquarters</p>
+  <a href="http://www.resilientstudio.com"><img src="http://growingresilient.com/wp-content/uploads/2018/01/Screenshot-2018-01-07-13.27.44-300x62.png" alt="" width="300" height="62" class="aligncenter size-medium wp-image-1166" /> </a>
+</div>
+
+
+
+
+<script>
+filterSelection("all") // Execute the function and show all columns
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+
+{% endblock %}

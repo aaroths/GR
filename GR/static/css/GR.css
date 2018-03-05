@@ -1,8 +1,6 @@
 
 
 h1{
-  margin-top:40px;
-  margin-right:110px;
   font-size: 3em;
 	font-family: Helvetica;
 }
@@ -44,11 +42,11 @@ li.nav {
   float:left;
   padding: 8px;
   font-size: 1.1eM;
+  color: black;
   /*background-color: #F4B1FF;*/
 }
 
 .nav:hover {
-  /*background-color: #fff;*/
   transition-duration:0.8s;
   text-decoration: underline;
 }
@@ -58,6 +56,7 @@ li.nav2 {
   float:right;
   padding: 8px;
   font-size: 1.1eM;
+  color: black;
   /*background-color: #F4B1FF;*/
 }
 
@@ -73,12 +72,12 @@ li.nav2 {
 }
 
 .page-header {
-    vertical-align:middle;
-    margin-top: 20px;
-    padding: 20px 20px 20px 40px;
-    position: relative;
+    padding: 20px;
     text-align: center;
+    background-color:#28A0AF;
     color: white;
+    border-radius: 10px;
+    opacity:0.9;
 }
 
 .centered {

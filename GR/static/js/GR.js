@@ -48,3 +48,10 @@
         this.className += " active";
       });
     }
+
+    #JQuery script
+    <script>
+    $("button").click(function() {
+      $( "#clickme" ).toggle();
+    });
+    </script>
