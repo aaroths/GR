@@ -2,7 +2,12 @@
 {% load static %}
 
 {% block content %}
+<div class = "page-header">
+  <h1>Growing Resilient </h1>
+</div>
+
   <h2>Sign up</h2>
+  <p>If you have an account, please <a href="{% url 'login'%}">login.</a></p>
   <form method="post">
     {% csrf_token %}
     {% for field in form %}

@@ -1,0 +1,3 @@
+{% for "number","text","divclass","style","link","title","image","displayorder","id" in interventions %}
+  <p>{{'number'}}{{'text'}}</p>
+{% endfor %}

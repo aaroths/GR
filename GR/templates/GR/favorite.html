@@ -8,16 +8,20 @@
   {% endif %}
   <br>
 
+
   <div class ="row">
-  {% for intervention in newlist %}
+
+  {% for x in newlist %}
     <div class="col-sm-4">
-    <h4 class="title{{intervention.style}}" style="text-align: center;"><a href ="/GR/{{intervention.link}}/">{{intervention.title}}</a></h4>
-    <p class="textbox{{intervention.style}}" style="text-align: center;"><a href ="/GR/{{intervention.link}}/"><span1><img src="/static/GR/{{intervention.image}}.png" alt="My image" style="width:50px;height:50px;"/><br>{{intervention.text}}</span1></a></p>
+    <h4 class="title{{x.style}}" style="text-align: center;"><a href ="/GR/{{x.link}}/">{{x.title}}</a></h4>
+    <div class = "textbox{{x.style}}"<p style="text-align: center;"><a href ="/GR/{{x.link}}/"><span1><img src="/static/GR/{{x.image}}.png" alt="My image" style="width:50px;height:50px;"/><br>{{x.text}}</span1></a></p></div>
 
     <form method="POST" class="post-form">{% csrf_token %}
-    <button type="submit" class="save btn btn-default" name="fav" option value="{{intervention.id}}">Unfavorite</button>
+    <button type="submit" class="save btn btn-default" name="fav" option value="{{x.id}}">Unfavorite</button>
     </form>
+
     </div>
   {% endfor %}
+
   </div>
 {% endblock %}

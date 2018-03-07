@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^chain/$', views.chain, name='chain'),
     url(r'^arrow/$', views.arrow, name='arrow'),
     url(r'^goal/$', views.goal, name='goal'),
+    url(r'^maybe/$', views.maybe, name='maybe'),
     #activiy
     url(r'^label/$', views.label, name='label'),
     url(r'^keystone/$', views.keystone, name='keystone'),

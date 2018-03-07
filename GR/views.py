@@ -28,7 +28,7 @@ def home(request):
     else:
         form = FavoriteForm()
 
-    return render(request,'GR/content.html', {'form':form,'interventions':interventions})
+    return render(request,'GR/home.html', {'form':form,'interventions':interventions})
 
 
 #def all(request):
@@ -36,8 +36,9 @@ def home(request):
 #    return render(request,'GR/all.html')
 
 def homealt (request):
+    interventions=Intervention.objects.all().values().order_by('displayorder')
 
-    return render(request,'GR/all3.html')
+    return render(request,'GR/homealt.html', {'interventions':interventions})
 
 def all2(request):
     user = request.user
@@ -70,10 +71,11 @@ def favorite (request):
     listfavorites=list(favorites)
     newlist = []
 
-    for favorite in favorites:
-        for intervention in interventions:
+    for intervention in interventions:
+        for favorite in favorites:
             if str(favorite['fav_id']) == str(intervention['id']):
                 newlist.append(intervention)
+
 
     if request.method == "POST":
         form = FavoriteForm(request.POST)
@@ -101,7 +103,6 @@ def resilience (request):
 def emergency (request):
 
     return render(request,'GR/emergency.html')
-
 
 #Tools
 def threePs(request):
@@ -139,6 +140,10 @@ def chain(request):
 def arrow(request):
 
     return render(request,'GR/tool/arrow.html')
+
+def maybe(request):
+
+    return render(request,'GR/activity/maybe.html')
 
 #activities
 def goal(request):

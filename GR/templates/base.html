@@ -16,12 +16,11 @@
 
 <body>
   <div class="row">
-    <div class="col-sm-1">
-    </div>
+    <div class="col-sm-1 outline"></div>
 
     <div class="col-sm-8 ">
       <br>
-      <div class = "nav">
+      <div class = "nav" id = "myHeader">
         <ul>
           <a href="{% url 'home' %}"><li class = "nav">Home</li></a>
           <a href="{% url 'about'%}"><li class = "nav2">About</li></a>
@@ -35,13 +34,32 @@
 
         </ul>
       </div>
-      <div class = "page-header">
-        <h1>Growing Resilient </h1>
-      </div>
 
-    <div>
+    <div class = "content">
     {% block content %}{% endblock %}
     </div>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1 outline"></div>
 
     </body>
     </html>
+
+  <script>
+    window.onscroll = function() {myFunction()};
+
+    // Get the navbar
+    var myHeader = document.getElementById("myHeader");
+
+    // Get the offset position of the navbar
+    var sticky = myHeader.offsetTop;
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        myHeader.classList.add("sticky")
+      } else {
+        myHeader.classList.remove("sticky");
+      }
+    }
+  </script>
