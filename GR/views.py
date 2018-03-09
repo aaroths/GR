@@ -37,7 +37,20 @@ def home(request):
 
 def homealt (request):
     interventions=Intervention.objects.all().values().order_by('displayorder')
+    if request.method == "POST":
+        form = FavoriteForm(request.POST)
 
+        if form.is_valid():
+            data = form.cleaned_data
+            favorite = form.save(commit=False)
+            favorite.author = request.user
+            if Favorite.objects.filter(author=user,fav=data['fav']).count()!=0:
+                Favorite.objects.filter(author=user,fav=data['fav']).update(toggle='True')
+            else:
+                favorite.toggle = "True"
+                favorite.save()
+
+            return redirect('homealt')
     return render(request,'GR/homealt.html', {'interventions':interventions})
 
 def all2(request):

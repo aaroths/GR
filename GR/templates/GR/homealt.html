@@ -12,7 +12,7 @@
   <p><strong><a href="{% url 'resilience' %}">Resilience</a></strong> allows us to overcome challenges, and even to grow and learn from them. This site has Tools, Activities, and Mindsets to increase your resilience.</p>
 
   <p>That way, when hard things happen, you're prepared to deal with them.</p>
-  
+
   <br>
 
   <p>#Filters</p>
@@ -35,10 +35,11 @@
     <div class="col-sm-4">
     <h4 class="title{{intervention.style}}" style="text-align: center;"><a href ="/GR/{{intervention.link}}/">{{intervention.title}}</a></h4>
     <p class="textbox{{intervention.style}}" style="text-align: center;"><a href ="/GR/{{intervention.link}}/"><span1><img src="/static/GR/{{intervention.image}}.png" alt="Image Coming Soon" style="width:50px;height:50px;"/><br>{{intervention.text}}</span1></a></p>
-
+    {% if user.is_authenticated %}
     <form method="POST" class="post-form">{% csrf_token %}
     <button type="submit" class="save btn btn-default" name="fav" option value="{{intervention.id}}">Favorite</button>
     </form>
+    {% endif %}
     </div>
     </div>
   {% endfor %}
