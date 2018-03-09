@@ -45,9 +45,14 @@ a.underline {
 a {
   color: #000 !important;
 }
+a:link {
+  color: #000 !important;
+}
+a:visited {
+  color: #000 ! important;
+}
 
 #myBtnContainer a{
-  color: #000 !important;
   text-decoration: none;
   padding-left: 5px;
 }
