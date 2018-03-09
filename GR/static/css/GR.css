@@ -38,8 +38,12 @@ p {
 }
 
 a.underline {
-  color: #000;
-  text-decoration: underline;
+  color: #000 !important;
+  text-decoration: underline !important;
+}
+
+a {
+  color: #000 !important;
 }
 
 #myBtnContainer a{
