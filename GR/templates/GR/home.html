@@ -12,9 +12,9 @@
   <p>Pick your <a class = "underline" href = "{% url 'favorite' %}">favourites</a> to create your own Toolkit</p>
   {% endif %}
 
-  <h4><b>Hard things happen to all of us.</b></h4>
+  <p><b>Hard things happen to all of us.</b></p>
 
-  <font color=#000><p><strong><a class = "underline" href="{% url 'resilience' %}">Resilience</a></strong> allows us to overcome challenges, and even to grow and learn from them</font>. This site has <font color=#3B70CB>Tools</font>, <font color=#0095A4>Activities</font>, and <font color=#A14FB4>Mindsets</font> to increase your resilience.</p>
+  <p><strong><a class = "underline" href="{% url 'resilience' %}"><font color=#000>Resilience</font></a></strong> allows us to overcome challenges, and even to grow and learn from them. This site has <font color=#3B70CB>Tools</font>, <font color=#0095A4>Activities</font>, and <font color=#A14FB4>Mindsets</font> to increase your resilience.</p>
 
   <div class = "image1">
   <img src="{% static "GR/tools.png" %}" alt="My image" style="width:75px;height:75px;"/>
@@ -26,7 +26,7 @@
   <br>
   {% if user.is_authenticated %}
   {% else %}
-  <p> <font color=#000><a class = "underline" href="{% url 'signup' %}">Sign Up</a> or <a class = "underline" href="{% url 'login' %}">Login</a> to create your own resilient toolkit.</p></font>
+  <p><a class = "underline" href="{% url 'signup' %}"><font color=#000>Sign Up</font></a> or <a class = "underline" href="{% url 'login' %}"><font color=#000>Login</font></a> to create your own resilient toolkit.</p>
   {% endif %}
 
   <div id="myBtnContainer">
