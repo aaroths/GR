@@ -1,5 +1,4 @@
 
-
 h1{
   font-size: 3em;
 	font-family: Helvetica;
@@ -13,9 +12,11 @@ h2 {
 h2 a:link {
 	color: #3f3f3f;
 }
+
 h2 a:visited {
   color: #3f3f3f;
 }
+
 h2 a:hover {
 color: #0095A4;
 }
@@ -43,18 +44,17 @@ a.underline {
 }
 
 a {
-  color: #000 !important;
-}
-a:link {
-  color: #000 !important;
-}
-a:visited {
-  color: #000 ! important;
 }
 
-#myBtnContainer a{
+a:link {
+}
+a:visited {
+}
+
+#myBtnContainer a:link{
   text-decoration: none;
   padding-left: 5px;
+  color: #000 !important;
 }
 
 .title {
