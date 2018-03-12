@@ -43,9 +43,6 @@ p {
   text-decoration: underline !important;
 }
 
-a {
-}
-
 a:link {
 }
 a:visited {
@@ -390,6 +387,11 @@ color: #2C5498 ;
 	color: #000;
 	background-color: #EEEEEE;
 	border-radius:10px;
+}
+
+a.underline {
+  color: #000 !important;
+  text-decoration: underline !important;
 }
 
 @media screen and (max-width: 600px) {
