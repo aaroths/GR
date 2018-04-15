@@ -55,8 +55,8 @@ a:visited {
 }
 
 .title {
-  text-align: center;
-  font-size: 1.2eM;
+  text-align: center !important;
+  font-size: 1.2eM !important;
 }
 
 
